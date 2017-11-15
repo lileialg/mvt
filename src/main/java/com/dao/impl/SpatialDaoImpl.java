@@ -41,11 +41,6 @@ public class SpatialDaoImpl implements SpatialDao {
 
 			String tile = TileUtils.parseXyz2Bound(x, y, z);
 			
-//			System.out.println("select link_pid,name,st_astext(geom) as geom from beijing_link "
-//				+ "where " + "st_intersects(geom,st_geomfromtext('"+tile+"',4326)) "
-//						+ "and link_pid=678030");
-			
-
 			List<Map<String, Object>> results = jdbc.queryForList(sql, tile);
 
 			VectorTileEncoder vte = new VectorTileEncoder(4096, 16, false);
